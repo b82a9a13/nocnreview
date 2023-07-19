@@ -1,0 +1,98 @@
+<h1 class="text-center">Manage NOCN Review</h1>
+<div class="nocn-border">
+    <div class="nocn-border-inner mb-1">
+        <form action="" id="reset_form">
+            <h2>Reset User Signature</h2>
+            <p id="reset_form_error" style="display: none;" class="text-error"></p>
+            <p>Select a user to reset the signature for:</p>
+            <select name="user" id="reset_user">    
+                <option selected disabled value="">Select a user</option>
+                {{#resetArray}}
+                    <option value="{{0}}">{{1}}</option>
+                {{/resetArray}}
+            </select>
+            <button class="btn btn-primary" type="submit">Reset</button>
+        </form>
+    </div>
+    <div class="nocn-border-inner mb-1">
+        <form action="" id="incomplete_form">
+            <h2>Incomplete Forms</h2>
+            <p id="incomplete_form_error" style="display: none;" class="text-error"></p>
+            <p>Select a user to view their incomplete form(s):</p>
+            <select name="user" id="incomplete_user">
+                <option selected disabled value="">Select a user</option>
+                {{#incompleteArray}}
+                    <option value="{{0}}">{{1}}</option>
+                {{/incompleteArray}}
+            </select>
+            <button class="btn-primary btn" type="submit">Select</button>
+        </form>
+    </div>
+    <div class="nocn-border-inner mb-1">
+        <form action="" id="history_form">
+            <h2>NOCN Form History</h2>
+            <p id="history_form_error" style="display: none;" class="text-error"></p>
+            <p>Select a learner to view the form history for:</p>
+            <select name="user" id="history_user">
+                <option selected disabled value="">Select a learner</option>
+                {{#historyArray}}
+                    <option value="{{0}}">{{1}}</option>
+                {{/historyArray}}
+            </select>
+            <button class="btn-primary btn" type="submit">Select</button>
+        </form>
+    </div>
+</div>
+<div class="nocn-border mt-2" style="display: none;" id="incomplete_div"></div>
+<div class="nocn-border mt-2" style="display: none;" id="history_div">
+    <div class="nocn-border-inner w-100">
+        <h1 id="history_title" class="text-center"><span id="history_div_error" class="text-error ml-2 mt-2" style="display: none; float: left;"></span>NOCN From History<span class="nocn-c-pointer" style="float:right;" onclick="close_div(`history`)">X</span></h1>
+        <div class="nocn-border mb-1 text-center w-100" id="history_btns"></div>
+        <div class="nocn-border w-100" id="history_content" style="display: none;">
+            <div id="history_content_btns" class="text-center"></div>
+            <h1 id="history_content_title"></h1>
+            <img src="./classes/img/nocn.png">
+            <div>
+                <b>Learner Name: </b><a href="" id="history_lname"></a>
+            </div><br>
+            <div>
+                <b>Qualification: </b><span id="history_qual"></span>
+            </div><br>
+            <div style="display:flex;">
+                <div style="width:50%;" class="mr-1"><b>Unit Number: </b><span id="history_unitnum"></span></div>
+                <div style="width:50%;"><b>Level: </b><span id="history_level"></span></div>
+            </div><br>
+            <div style="display: flex;">
+                <div style="width: 50%;" class="mr-1"><b>Tutor/Assessor: </b><a href="" id="history_tutorassessor"></a></div>
+                <div style="width: 50%;"><b>Date: </b><span id="history_date"></span></div>
+            </div><br>
+            <div>
+                <b>Feedback from Assessor to Learner: </b><span id="history_feedatol"></span>
+            </div><br>
+            <div>
+                <b>Comments from Learner: </b><span id="history_comlearn"></span>
+            </div><br>
+            <div>
+                <b>Have all assessment criteria for the unit been met?</b> <span id="history_criteria"></span>
+            </div><br>
+            <div style="display: flex;">
+                <div style="width:50%;" class="mr-1"><b>Learner Signature: </b><span id="history_learnsign"></span></div>
+                <div style="width: 50%;"><b>Date: </b><span id="history_learnsign_d"></span></div>
+            </div><br>
+            <div style="display: flex;">
+                <div style="width:50%;" class="mr-1"><b>Tutor/Assessor Signature: </b><span id="history_tutorasessorsign"></span></div>
+                <div style="width: 50%;"><b>Date: </b><span id="history_tutorasessorsign_d"></span></div>
+            </div><br>
+            <div style="display: flex;">
+                <div style="width:50%;" class="mr-1"><b>IQA Signature (if sampled): </b><span id="history_iqasign"></span></div>
+                <div style="width: 50%;"><b>Date: </b><span id="history_iqasign_d"></span></div>
+            </div><br>
+            <p>
+                <b><u>Source Data:</b></u> <br><b>IP Address: </b><span id="history_src_ip"></span><br>
+                <b>Browser Data: </b><span id="history_src_browser"></span><br>
+                <b>User ID: </b><span id="history_src_uid"></span><br>
+                <b>Full Name: </b><span id="history_src_fullname"></span><br>
+            </p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+.nocn-border{
+    border: 2px solid #95287A;
+    border-radius: 5px;
+    padding: .5rem;
+    background:white;
+}
+.nocn-border-inner{
+    border: 2px solid #95287A;
+    border-radius: 5px;
+    padding: .5rem;
+    background:#F5F5F5;
+    display: inline-block
+}
+.nocn-border-outer{
+    text-align:center;
+}
+.nocn-c-pointer{
+    cursor: pointer;
+}

@@ -1,0 +1,16 @@
+<div class="nocn-border">
+    <h2 class="text-center">{{chooseFTE}}</h2>
+    <div class="nocn-border-outer">
+    {{#array}}
+        <div class="nocn-border-inner mr-1 mb-2">
+            <h3>{{2}} {{3}}</h3>
+            <span class="d-flex flex-column">
+                <button class="btn btn-primary mr-1 nocn-form-select-btn" id="nocn_form_select_btn{{0}}" onclick="selectForm({{0}})" value="{{1}}">{{viewform}}</button>
+                <button class="btn btn-primary mt-1 mr-1" onclick="window.open('./classes/pdf/nocnreview_pdf_learner.php?cid={{courseid}}&fid={{1}}&t=I')">{{viewpdf}}</button>
+                <button class="btn btn-primary mt-1 mr-1" onclick="window.open('./classes/pdf/nocnreview_pdf_learner.php?cid={{courseid}}&fid={{1}}&t=D')">{{downloadpdf}}</button>
+            </span>
+        </div>
+    {{/array}}
+    </div>
+    <h2 class="text-error text-center" id="nocn_select_formid_error" style="display:{{nocn_select_error_style}};">{{nocn_error_text}}</h2>
+</div><br>

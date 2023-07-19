@@ -1,0 +1,13 @@
+<div class="nocn-border nocn-border-outer">
+    <h2 class="text-center">{{courseMenuTitle}}</h2>
+    {{#array}}
+        <div class="nocn-border-inner mr-1 mb-2">
+            <h3 class="nocn-c-pointer" onclick="window.location.href='./../../user/view.php?id={{1}}&course={{id}}'">{{0}}</h3>
+            <span class="d-flex flex-column">
+                <p>Total: {{2}}</p>
+                <p>Complete: {{3}}</p>
+                <button class="btn btn-primary mb-1" onclick="window.location.href='./nocnreview_coach.php?id={{id}}&uid={{1}}{{fid}}{{mid}}'">{{viewforms}}</button><br>
+            </span>
+        </div>
+    {{/array}}
+</div>

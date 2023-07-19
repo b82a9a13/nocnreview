@@ -1,0 +1,20 @@
+<div class="nocn-border text-center">
+    <h2 class="text-center">{{form_menu_title}}</h2>
+    <button class="btn btn-primary" onclick="window.location.href='./nocnreview_coach.php?id={{courseid}}{{mid}}{{fid}}'">{{btnocncm}}</button><br><br>
+    <div class="nocn-border-outer">
+    {{#forms}}
+        <div class="nocn-border-inner mr-1 mb-2">
+            <h3>{{2}} {{3}}</h3>
+            <span class="d-flex flex-column">
+                <button class="btn btn-primary mr-1 nocn-form-select-btn" onclick="edit_form({{1}},{{0}})">{{viewform}}</button>
+                <button class="btn btn-primary mr-1 mt-1" onclick="window.open('./classes/pdf/nocnreview_pdf_coach.php?uid={{uid}}&fid={{0}}&cid={{courseid}}&t=I')">{{viewpdf}}</button>
+                <button class="btn btn-primary mr-1 mt-1" onclick="window.open('./classes/pdf/nocnreview_pdf_coach.php?uid={{uid}}&fid={{0}}&cid={{courseid}}&t=D')">{{downloadpdf}}</button>
+            </span>
+        </div>
+    {{/forms}}
+    </div>
+    <br>
+    <button class="btn btn-primary" id="nocn_create_new_form">{{createnf}}</button>
+    <h2 class="text-center text-error" style="display: {{form_menu_error_style}};" id="nocn_form_menu_error">{{errorText}}</h2>
+</div>
+<br>

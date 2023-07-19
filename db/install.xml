@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="local/nocnreview/db" VERSION="20200213" COMMENT="XMLDB file for nocnreview"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+    <TABLES>
+        <TABLE NAME="nocn_reviews" COMMENT="Each record represents a NOCN form">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+                <FIELD NAME="number" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="courseid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="learnerid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="assessorid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="iqaid" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+                <FIELD NAME="learnername" TYPE="text" NOTNULL="true"/>
+                <FIELD NAME="qualification" TYPE="text" NOTNULL="true"/>
+                <FIELD NAME="unitnumber" TYPE="text" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="level" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="assessorname" TYPE="text" NOTNULL="true"/>
+                <FIELD NAME="date" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="feedbackassessor" TYPE="text" NOTNULL="true"/>
+                <FIELD NAME="commentlearner" TYPE="text" NOTNULL="false"/>
+                <FIELD NAME="metcriteria" TYPE="int" LENGTH="1" NOTNULL="true"/>
+                <FIELD NAME="learnersignature" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false"/>
+                <FIELD NAME="learnersignatureimg" TYPE="text" NOTNULL="false"/>
+                <FIELD NAME="learnersignaturedate" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+                <FIELD NAME="assessorsignature" TYPE="int" LENGTH="1" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="assessorsignatureimg" TYPE="text" NOTNULL="true"/>
+                <FIELD NAME="assessorsignaturedate" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="iqasignature" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false"/>
+                <FIELD NAME="iqasignatureimg" TYPE="text" NOTNULL="false"/>
+                <FIELD NAME="iqasignaturedate" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+                <KEY NAME="courseid" TYPE="foreign" FIELDS="courseid" REFTABLE="course" REFFIELDS="id"/>
+                <KEY NAME="learnerid" TYPE="foreign" FIELDS="learnerid" REFTABLE="user" REFFIELDS="id"/>
+                <KEY NAME="assessorid" TYPE="foreign" FIELDS="assessorid" REFTABLE="user" REFFIELDS="id"/>
+                <KEY NAME="iqaid" TYPE="foreign" FIELDS="iqaid" REFTABLE="user" REFFIELDS="id"/>
+            </KEYS>
+        </TABLE>
+        <TABLE NAME="nocn_signatures" COMMENT="Each record represents a users signature">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+                <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="signature" TYPE="text" NOTNULL="true"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+                <KEY NAME="userid" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id"/>
+            </KEYS>        
+        </TABLE>
+        <TABLE NAME="nocn_history" COMMENT="Each record represents a history log of a NOCN form">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+                <FIELD NAME="reviewid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="ipaddress" TYPE="text" NOTNULL="true"/>
+                <FIELD NAME="date" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="browserdata" TYPE="text" NOTNULL="true"/>
+                <FIELD NAME="nocndata" TYPE="text" NOTNULL="true"/>
+                <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="asuserid" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+                <FIELD NAME="signid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+                <KEY NAME="reviewid" TYPE="foreign" FIELDS="reviewid" REFTABLE="nocn_reviews" REFFIELDS="id"/>
+                <KEY NAME="userid" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id"/>
+                <KEY NAME="asuserid" TYPE="foreign" FIELDS="asuserid" REFTABLE="user" REFFIELDS="id"/>
+                <KEY NAME="signid" TYPE="foreign" FIELDS="signid" REFTABLE="nocn_signatures" REFFIELDS="id"/>
+            </KEYS>
+        </TABLE>
+    </TABLES>
+</XMLDB>

@@ -1,0 +1,81 @@
+<form action="" method="POST" id="nocn_form{{exists}}" class="nocn-border" enctype="application/x-www-form-urlencoded" {{nocn_form_style}}>
+    <h1 id="nocn_form_title{{exists}}">{{title}} {{formType}}</h1>
+    <img src="./classes/img/nocn.png">
+    <div id="learnerNameDiv{{exists}}">
+        {{learnerName}}{{coachStar}}{{learnerStar}}
+        <input type="text" id="learnerName{{exists}}" placeholder="{{learnerName}}" class="form-control" value="{{learner}}" {{coachRequired}}{{learnerRequired}}>
+    </div><br>
+    <div id="qualificationDiv{{exists}}">
+        {{qualification}}{{coachStar}}
+        <input type="text" id="qualification{{exists}}" placeholder="{{qualification}}" class="form-control" value="{{qualvalue}}"{{coachRequired}}{{learnerDisabled}}>
+    </div><br>
+    <div style="display:flex;">
+        <div style="width:50%;" class="mr-1" id="unitNumberDiv{{exists}}">
+            {{unitNumber}}{{coachStar}}
+            <input type="text" id="unitNumber{{exists}}" placeholder="{{unitNumber}}" class="form-control" {{coachRequired}}{{learnerDisabled}}>
+        </div>
+        <div style="width:50%;" id="levelDiv{{exists}}">
+            {{level}}{{coachStar}}
+            <input type="number" id="level{{exists}}" placeholder="{{level}}" class="form-control" value="{{levelvalue}}" {{coachRequired}}{{learnerDisabled}}>
+        </div>
+    </div><br>
+    <div style="display:flex;">
+        <div style="width:50%;" class="mr-1" id="tutorAssessorDiv{{exists}}">
+            {{tutororAssessor}}{{coachStar}}
+            <input type="text" id="tutorAssessor{{exists}}" placeholder="{{tutororAssessor}}" class="form-control" value="{{coach}}" {{coachRequired}}{{learnerDisabled}}>
+        </div>
+        <div style="width:50%;" id="dateDiv{{exists}}">
+            {{date}}{{coachStar}}
+            <input type="date" id="date{{exists}}" class="form-control" {{coachRequired}}{{learnerDisabled}} min="{{coachstartdate}}" max="{{coachenddate}}" value="{{coachenddate}}">
+        </div>
+    </div><br>
+    <div id="feedbackAssesorDiv{{exists}}">
+        {{feedbackFromAtoL}}{{coachStar}}
+        <textarea id="feedbackAssessor{{exists}}" placeholder="{{feedbackFromAtoL}}" class="form-control" {{coachRequired}}{{learnerDisabled}}></textarea>
+    </div><br>
+    <div id="learnerCommentsDiv{{exists}}">
+        {{commentsFromL}}{{learnerStar}}
+        <textarea id="learnerComments{{exists}}" placeholder="{{commentsFromL}}" class="form-control" {{coachDisabled}}{{learnerRequired}}></textarea> 
+    </div><br>
+    <div id="assessmentCriteriaDiv{{exists}}">
+        {{criteriaMet}}{{coachStar}}
+        <select id="assessmentCriteria{{exists}}" class="form-control" {{coachRequired}}{{learnerDisabled}}>
+            <option value="" selected hidden disabled>{{chooseAOpt}}</option>
+            <option value="yes">{{yes}}</option>
+            <option value="no">{{no}}</option>
+        </select>
+    </div><br>
+    <div style="display:flex;">
+        <div style="width:50%;" class="mr-1" id="learnerSignatureDiv{{exists}}">
+            {{learnersign}}{{learnerStar}}
+            <input type="checkbox" id="learnerSignature{{exists}}" class="form-control" {{coachDisabled}}{{learnerRequired}} onclick="clickedSign('{{learnerClicked}}')">
+        </div>
+        <div style="width:50%;" id="learnerSignatureDateDiv{{exists}}">
+            {{date}}{{learnerStar}}
+            <input type="date" id="learnerSignatureDate{{exists}}" class="form-control" {{coachDisabled}}{{learnerRequired}} min="{{learnerstartdate}}" max="{{learnerenddate}}">
+        </div>
+    </div><br>
+    <div style="display:flex;">
+        <div style="width:50%;" class="mr-1" id="tutorAssessorSignatureDiv{{exists}}">
+            {{tutororAssessorSign}}{{coachStar}}
+            <input type="checkbox" id="tutorAssessorSignature{{exists}}" class="form-control" {{coachRequired}}{{learnerDisabled}} onclick="clickedSign('{{tutorAssessorClicked}}')">
+        </div>
+        <div style="width:50%;" id="tutorAssessorSignatureDateDiv{{exists}}">
+            {{date}}{{coachStar}}
+            <input type="date" id="tutorAssessorSignatureDate{{exists}}" class="form-control" {{coachRequired}}{{learnerDisabled}} min="{{coachstartdate}}" max="{{coachenddate}}">
+        </div>
+    </div><br>
+    <div style="display:flex;">
+        <div style="width:50%;" class="mr-1" id="iqaSignatureDiv{{exists}}">
+            {{iqaSign}}
+            <input type="checkbox" id="iqaSignature{{exists}}" class="form-control"{{learnerDisabled}} onclick="clickedSign('{{iqaClicked}}')">
+        </div>
+        <div style="width:50%;" id="iqaSignatureDateDiv{{exists}}">
+            {{date}}
+            <input type="date" id="iqaSignatureDate{{exists}}" class="form-control"{{learnerDisabled}} min="{{coachstartdate}}" max="{{coachenddate}}">
+        </div>
+    </div><br>
+    <h2 class="text-error" id="nocn_error_text{{exists}}" style="display:none;"></h2>
+    <input hidden id="form_number{{exists}}" value="{{newFormNumber}}">
+    <button type="submit" id="nocn_submit{{exists}}" class="btn-primary btn">{{submit}}</button>
+</form><br>
